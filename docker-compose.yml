@@ -3,6 +3,9 @@ services:
     apollo-configservice:
         build: apollo-configservice/
         container_name: apollo-configservice
+        networks: 
+            docker-apollo-network:
+                ipv4_address: 172.23.0.2
         ports: 
             - 8080:8080
         volumes: 
@@ -11,13 +14,16 @@ services:
             - SPRING_DATASOURCE_URL=jdbc:mysql://rm-bp18c5414gvi6244h7o.mysql.rds.aliyuncs.com:3306/ApolloConfigDB?characterEncoding=utf8
             - SPRING_DATASOURCE_USERNAME=apollo
             - SPRING_DATASOURCE_PASSWORD=2f4a9be476ee499f8e5d8c8f3998cd0a
-            - eureka.instance.ip-address=172.18.0.2
-            - eureka.instance.hostname=172.18.0.2
+            - eureka.instance.ip-address=172.23.0.2
+            - eureka.instance.hostname=172.23.0.2
         restart: always
 
     apollo-adminservice:
         build: apollo-adminservice/
         container_name: apollo-adminservice
+        networks: 
+            docker-apollo-network:
+                ipv4_address: 172.23.0.3
         depends_on: 
             - apollo-configservice
         ports: 
@@ -28,13 +34,15 @@ services:
             - SPRING_DATASOURCE_URL=jdbc:mysql://rm-bp18c5414gvi6244h7o.mysql.rds.aliyuncs.com:3306/ApolloConfigDB?characterEncoding=utf8
             - SPRING_DATASOURCE_USERNAME=apollo
             - SPRING_DATASOURCE_PASSWORD=2f4a9be476ee499f8e5d8c8f3998cd0a
-            - eureka.instance.ip-address=172.18.0.2
-            - eureka.instance.hostname=172.18.0.3
+            - eureka.instance.ip-address=172.23.0.2
+            - eureka.instance.hostname=172.23.0.3
         restart: always
 
     apollo-portal:
         build: apollo-portal/
         container_name: apollo-portal
+        networks: 
+            - docker-apollo-network
         depends_on: 
             - apollo-adminservice
         ports: 
@@ -47,3 +55,12 @@ services:
             - SPRING_DATASOURCE_USERNAME=apollo
             - SPRING_DATASOURCE_PASSWORD=2f4a9be476ee499f8e5d8c8f3998cd0a
         restart: always
+
+networks: 
+    docker-apollo-network:
+        driver: bridge
+        ipam: 
+            driver: default
+            config: 
+            - subnet: 172.23.0.0/24
+              gateway: 172.23.0.1
