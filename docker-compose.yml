@@ -48,8 +48,6 @@ services:
             - apollo-adminservice
         ports: 
             - 8070:8070
-        external_links:
-            - nginx
         volumes: 
             - /home/mickey/docker/docker-apollo/logs:/opt/logs
             - /home/mickey/docker/docker-apollo/apollo-portal/config/apollo-env.properties:/apollo-portal/config/apollo-env.properties
@@ -57,6 +55,20 @@ services:
             - SPRING_DATASOURCE_URL=jdbc:mysql://rm-bp18c5414gvi6244h7o.mysql.rds.aliyuncs.com:3306/ApolloPortalDB?characterEncoding=utf8
             - SPRING_DATASOURCE_USERNAME=apollo
             - SPRING_DATASOURCE_PASSWORD=2f4a9be476ee499f8e5d8c8f3998cd0a
+        restart: always
+
+    nginx:
+        container_name: nginx
+        image: nginx
+        networks: 
+            docker-apollo-network:
+                ipv4_address: 172.23.0.5
+        ports: 
+            - 80:80
+        volumes: 
+            - /home/mickey/docker/docker-apollo/logs/nginx:/var/log/nginx
+            - /home/mickey/docker/docker-apollo/nginx/conf/nginx.conf:/etc/nginx/nginx.conf
+            - /home/mickey/docker/docker-apollo/nginx/html:/usr/share/nginx/html
         restart: always
 
 networks: 
