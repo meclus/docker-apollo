@@ -48,6 +48,8 @@ services:
             - apollo-adminservice
         ports: 
             - 8070:8070
+        external_links:
+            - nginx
         volumes: 
             - /home/mickey/docker/docker-apollo/logs:/opt/logs
             - /home/mickey/docker/docker-apollo/apollo-portal/config/apollo-env.properties:/apollo-portal/config/apollo-env.properties
