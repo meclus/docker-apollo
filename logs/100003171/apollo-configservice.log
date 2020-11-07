@@ -2376,3 +2376,4 @@ com.netflix.discovery.shared.transport.TransportException: Cannot execute reques
 2020-11-07 20:09:01.835  INFO 29 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
 2020-11-07 20:09:35.805  INFO 29 --- [Eureka-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 0ms
 2020-11-07 20:10:01.837  INFO 29 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2020-11-07 20:10:35.805  INFO 29 --- [Eureka-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 0ms

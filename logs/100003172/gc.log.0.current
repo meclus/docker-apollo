@@ -24376,3 +24376,28 @@ Heap after GC invocations=1184 (full 99):
 2020-11-07T20:09:47.113+0800: 713.790: Application time: 2.0002305 seconds
 2020-11-07T20:09:57.114+0800: 723.791: Application time: 10.0009687 seconds
 2020-11-07T20:10:03.115+0800: 729.792: Application time: 6.0007523 seconds
+2020-11-07T20:10:07.116+0800: 733.792: Application time: 4.0005300 seconds
+2020-11-07T20:10:16.949+0800: 743.625: Application time: 9.8325931 seconds
+{Heap before GC invocations=1184 (full 99):
+ par new generation   total 9216K, used 8845K [0x00000000e3400000, 0x00000000e3e00000, 0x00000000ecca0000)
+  eden space 8192K, 100% used [0x00000000e3400000, 0x00000000e3c00000, 0x00000000e3c00000)
+  from space 1024K,  63% used [0x00000000e3c00000, 0x00000000e3ca36b8, 0x00000000e3d00000)
+  to   space 1024K,   0% used [0x00000000e3d00000, 0x00000000e3d00000, 0x00000000e3e00000)
+ concurrent mark-sweep generation total 121312K, used 65276K [0x00000000ecca0000, 0x00000000f4318000, 0x0000000100000000)
+ Metaspace       used 81261K, capacity 85340K, committed 85504K, reserved 1124352K
+  class space    used 10416K, capacity 11188K, committed 11264K, reserved 1048576K
+2020-11-07T20:10:16.949+0800: 743.626: [GC (Allocation Failure) 2020-11-07T20:10:16.949+0800: 743.626: [ParNew: 8845K->1023K(9216K), 0.0235275 secs] 74121K->66305K(130528K), 0.0236658 secs] [Times: user=0.03 sys=0.00, real=0.02 secs] 
+Heap after GC invocations=1185 (full 99):
+ par new generation   total 9216K, used 1023K [0x00000000e3400000, 0x00000000e3e00000, 0x00000000ecca0000)
+  eden space 8192K,   0% used [0x00000000e3400000, 0x00000000e3400000, 0x00000000e3c00000)
+  from space 1024K,  99% used [0x00000000e3d00000, 0x00000000e3dffef8, 0x00000000e3e00000)
+  to   space 1024K,   0% used [0x00000000e3c00000, 0x00000000e3c00000, 0x00000000e3d00000)
+ concurrent mark-sweep generation total 121312K, used 65281K [0x00000000ecca0000, 0x00000000f4318000, 0x0000000100000000)
+ Metaspace       used 81261K, capacity 85340K, committed 85504K, reserved 1124352K
+  class space    used 10416K, capacity 11188K, committed 11264K, reserved 1048576K
+}
+2020-11-07T20:10:17.973+0800: 744.649: Application time: 1.0001165 seconds
+2020-11-07T20:10:27.974+0800: 754.651: Application time: 10.0009875 seconds
+2020-11-07T20:10:32.974+0800: 759.651: Application time: 5.0004637 seconds
+2020-11-07T20:10:37.019+0800: 763.696: Application time: 4.0442828 seconds
+2020-11-07T20:10:38.019+0800

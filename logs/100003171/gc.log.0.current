@@ -27107,4 +27107,33 @@ Heap after GC invocations=1306 (full 111):
 2020-11-07T20:09:49.788+0800: 872.937: Application time: 16.0082794 seconds
 2020-11-07T20:09:53.788+0800: 876.938: Application time: 4.0004217 seconds
 2020-11-07T20:09:57.789+0800: 880.939: Application time: 4.0003430 seconds
-2020-11-07T20:10:02.788+0800
+2020-11-07T20:10:02.788+0800: 885.938: Application time: 4.9988119 seconds
+2020-11-07T20:10:02.790+0800: 885.940: Application time: 0.0019617 seconds
+2020-11-07T20:10:03.793+0800: 886.943: Application time: 1.0022656 seconds
+2020-11-07T20:10:08.794+0800: 891.944: Application time: 5.0005919 seconds
+2020-11-07T20:10:11.795+0800: 894.944: Application time: 3.0003248 seconds
+2020-11-07T20:10:14.795+0800: 897.945: Application time: 3.0003314 seconds
+2020-11-07T20:10:19.257+0800: 902.407: Application time: 4.4615126 seconds
+{Heap before GC invocations=1306 (full 111):
+ par new generation   total 9216K, used 9084K [0x00000000e3400000, 0x00000000e3e00000, 0x00000000ecca0000)
+  eden space 8192K, 100% used [0x00000000e3400000, 0x00000000e3c00000, 0x00000000e3c00000)
+  from space 1024K,  87% used [0x00000000e3c00000, 0x00000000e3cdf358, 0x00000000e3d00000)
+  to   space 1024K,   0% used [0x00000000e3d00000, 0x00000000e3d00000, 0x00000000e3e00000)
+ concurrent mark-sweep generation total 119212K, used 61962K [0x00000000ecca0000, 0x00000000f410b000, 0x0000000100000000)
+ Metaspace       used 90353K, capacity 94525K, committed 94592K, reserved 1132544K
+  class space    used 11596K, capacity 12397K, committed 12416K, reserved 1048576K
+2020-11-07T20:10:19.257+0800: 902.407: [GC (Allocation Failure) 2020-11-07T20:10:19.257+0800: 902.407: [ParNew: 9084K->891K(9216K), 0.0240878 secs] 71047K->63050K(128428K), 0.0241942 secs] [Times: user=0.03 sys=0.00, real=0.02 secs] 
+Heap after GC invocations=1307 (full 111):
+ par new generation   total 9216K, used 891K [0x00000000e3400000, 0x00000000e3e00000, 0x00000000ecca0000)
+  eden space 8192K,   0% used [0x00000000e3400000, 0x00000000e3400000, 0x00000000e3c00000)
+  from space 1024K,  87% used [0x00000000e3d00000, 0x00000000e3ddef60, 0x00000000e3e00000)
+  to   space 1024K,   0% used [0x00000000e3c00000, 0x00000000e3c00000, 0x00000000e3d00000)
+ concurrent mark-sweep generation total 119212K, used 62158K [0x00000000ecca0000, 0x00000000f410b000, 0x0000000100000000)
+ Metaspace       used 90353K, capacity 94525K, committed 94592K, reserved 1132544K
+  class space    used 11596K, capacity 12397K, committed 12416K, reserved 1048576K
+}
+2020-11-07T20:10:20.282+0800: 903.431: Application time: 1.0001427 seconds
+2020-11-07T20:10:23.282+0800: 906.432: Application time: 3.0002829 seconds
+2020-11-07T20:10:27.283+0800: 910.433: Application time: 4.0003908 seconds
+2020-11-07T20:10:31.291+0800: 914.440: Application time: 4.0073045 seconds
+2020-11-07T20:10:33.291+0800
