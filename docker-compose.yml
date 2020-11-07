@@ -6,13 +6,13 @@ services:
         ports: 
             - 8080:8080
         volumes: 
-            - /Users/wangmeng/workSpace/docker/mickey/apollo/logs:/opt/logs
+            - /home/mickey/docker/apollo/logs:/opt/logs
         environment: 
-            - SPRING_DATASOURCE_URL=jdbc:mysql://10.0.0.3:3366/ApolloConfigDB?characterEncoding=utf8
+            - SPRING_DATASOURCE_URL=jdbc:mysql://rm-bp18c5414gvi6244h7o.mysql.rds.aliyuncs.com:3306/ApolloConfigDB?characterEncoding=utf8
             - SPRING_DATASOURCE_USERNAME=apollo
             - SPRING_DATASOURCE_PASSWORD=2f4a9be476ee499f8e5d8c8f3998cd0a
-            - eureka.instance.ip-address=172.19.0.2
-            - eureka.instance.hostname=172.19.0.2
+            - eureka.instance.ip-address=172.18.0.2
+            - eureka.instance.hostname=172.18.0.2
         restart: always
 
     apollo-adminservice:
@@ -23,13 +23,13 @@ services:
         ports: 
             - 8090:8090
         volumes: 
-            - /Users/wangmeng/workSpace/docker/mickey/apollo/logs:/opt/logs
+            - /home/mickey/docker/apollo/logs:/opt/logs
         environment: 
-            - SPRING_DATASOURCE_URL=jdbc:mysql://10.0.0.3:3366/ApolloConfigDB?characterEncoding=utf8
+            - SPRING_DATASOURCE_URL=jdbc:mysql://rm-bp18c5414gvi6244h7o.mysql.rds.aliyuncs.com:3306/ApolloConfigDB?characterEncoding=utf8
             - SPRING_DATASOURCE_USERNAME=apollo
             - SPRING_DATASOURCE_PASSWORD=2f4a9be476ee499f8e5d8c8f3998cd0a
-            - eureka.instance.ip-address=172.19.0.2
-            - eureka.instance.hostname=172.19.0.3
+            - eureka.instance.ip-address=172.18.0.2
+            - eureka.instance.hostname=172.18.0.3
         restart: always
 
     apollo-portal:
@@ -40,10 +40,10 @@ services:
         ports: 
             - 8070:8070
         volumes: 
-            - /Users/wangmeng/workSpace/docker/mickey/apollo/logs:/opt/logs
-            - /Users/wangmeng/workSpace/docker/mickey/apollo/apollo-portal/config/apollo-env.properties:/apollo-portal/config/apollo-env.properties
+            - /home/mickey/docker/apollo/logs:/opt/logs
+            - /home/mickey/docker/apollo/apollo-portal/config/apollo-env.properties:/apollo-portal/config/apollo-env.properties
         environment: 
-            - SPRING_DATASOURCE_URL=jdbc:mysql://10.0.0.3:3366/ApolloConfigDB?characterEncoding=utf8
+            - SPRING_DATASOURCE_URL=jdbc:mysql://rm-bp18c5414gvi6244h7o.mysql.rds.aliyuncs.com:3306/ApolloPortalDB?characterEncoding=utf8
             - SPRING_DATASOURCE_USERNAME=apollo
             - SPRING_DATASOURCE_PASSWORD=2f4a9be476ee499f8e5d8c8f3998cd0a
         restart: always
