@@ -42,7 +42,8 @@ services:
         build: apollo-portal/
         container_name: apollo-portal
         networks: 
-            - docker-apollo-network
+            docker-apollo-network:
+                ipv4_address: 172.23.0.4
         depends_on: 
             - apollo-adminservice
         ports: 
