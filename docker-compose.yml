@@ -35,7 +35,7 @@ services:
             - SPRING_DATASOURCE_USERNAME=apollo
             - SPRING_DATASOURCE_PASSWORD=2f4a9be476ee499f8e5d8c8f3998cd0a
             - eureka.instance.ip-address=172.23.0.3
-            # - eureka.instance.hostname=172.23.0.3
+            - eureka.instance.hostname=172.23.0.2
         restart: always
 
     apollo-portal:
