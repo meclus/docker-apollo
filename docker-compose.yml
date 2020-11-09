@@ -8,14 +8,16 @@ services:
                 ipv4_address: 172.23.0.2
         ports: 
             - 8080:8080
+        depends_on:
+            - apollo-nginx
         volumes: 
             - /home/mickey/docker/docker-apollo/logs:/opt/logs
         environment: 
             - SPRING_DATASOURCE_URL=jdbc:mysql://rm-bp18c5414gvi6244h7o.mysql.rds.aliyuncs.com:3306/ApolloConfigDB?characterEncoding=utf8
             - SPRING_DATASOURCE_USERNAME=apollo
             - SPRING_DATASOURCE_PASSWORD=2f4a9be476ee499f8e5d8c8f3998cd0a
-            - eureka.instance.ip-address=172.23.0.2
-            - eureka.instance.hostname=172.23.0.2
+            - eureka.instance.ip-address=101.37.244.179
+            - eureka.instance.hostname=101.37.244.179
         restart: always
 
     apollo-adminservice:
@@ -57,8 +59,8 @@ services:
             - SPRING_DATASOURCE_PASSWORD=2f4a9be476ee499f8e5d8c8f3998cd0a
         restart: always
 
-    nginx:
-        container_name: nginx
+    apollo-nginx:
+        container_name: apollo-nginx
         image: nginx
         networks: 
             docker-apollo-network:
