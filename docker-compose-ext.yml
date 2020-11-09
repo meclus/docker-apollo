@@ -1,8 +1,8 @@
 version: "3"
 services: 
-    apollo-configservice:
+    apollo-dev-configservice:
         build: apollo-configservice/
-        container_name: apollo-configservice
+        container_name: apollo-dev-configservice
         networks: 
             docker-apollo-network:
                 ipv4_address: 172.23.0.7
@@ -13,7 +13,7 @@ services:
         volumes: 
             - /home/mickey/docker/docker-apollo/logs:/opt/logs
         environment: 
-            - SPRING_DATASOURCE_URL=jdbc:mysql://rm-bp18c5414gvi6244h7o.mysql.rds.aliyuncs.com:3306/ApolloConfigDB?characterEncoding=utf8
+            - SPRING_DATASOURCE_URL=jdbc:mysql://rm-bp18c5414gvi6244h7o.mysql.rds.aliyuncs.com:3306/ApolloConfigDB_DEV?characterEncoding=utf8
             - SPRING_DATASOURCE_USERNAME=apollo
             - SPRING_DATASOURCE_PASSWORD=2f4a9be476ee499f8e5d8c8f3998cd0a
             - eureka.instance.ip-address=101.37.244.179
@@ -21,20 +21,20 @@ services:
             - eureka.client.serviceUrl.defaultZone=http://${eureka.instance.hostname}:7080/eureka/
         restart: always
 
-    apollo-adminservice:
+    apollo-dev-adminservice:
         build: apollo-adminservice/
-        container_name: apollo-adminservice
+        container_name: apollo-dev-adminservice
         networks: 
             docker-apollo-network:
                 ipv4_address: 172.23.0.3
         depends_on: 
-            - apollo-configservice
+            - apollo-dev-configservice
         ports: 
             - 7090:8090
         volumes: 
             - /home/mickey/docker/docker-apollo/logs:/opt/logs
         environment: 
-            - SPRING_DATASOURCE_URL=jdbc:mysql://rm-bp18c5414gvi6244h7o.mysql.rds.aliyuncs.com:3306/ApolloConfigDB?characterEncoding=utf8
+            - SPRING_DATASOURCE_URL=jdbc:mysql://rm-bp18c5414gvi6244h7o.mysql.rds.aliyuncs.com:3306/ApolloConfigDB_DEV?characterEncoding=utf8
             - SPRING_DATASOURCE_USERNAME=apollo
             - SPRING_DATASOURCE_PASSWORD=2f4a9be476ee499f8e5d8c8f3998cd0a
             - eureka.instance.ip-address=172.23.0.8
