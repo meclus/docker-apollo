@@ -11,11 +11,11 @@ services:
         volumes: 
             - /Users/wangmeng/workSpace/docker/mickey/apollo/logs:/opt/logs
         environment: 
-            - SPRING_DATASOURCE_URL=jdbc:mysql://10.0.0.3:3366/ApolloConfigDB?characterEncoding=utf8
+            - SPRING_DATASOURCE_URL=jdbc:mysql://192.168.27.42:3366/ApolloConfigDB?characterEncoding=utf8
             - SPRING_DATASOURCE_USERNAME=apollo
             - SPRING_DATASOURCE_PASSWORD=2f4a9be476ee499f8e5d8c8f3998cd0a
             - eureka.instance.ip-address=172.23.0.2
-            - eureka.instance.hostname=172.23.0.2
+            - eureka.instance.hostname=192.168.27.42
         restart: always
 
     apollo-adminservice:
@@ -31,33 +31,11 @@ services:
         volumes: 
             - /Users/wangmeng/workSpace/docker/mickey/apollo/logs:/opt/logs
         environment: 
-            - SPRING_DATASOURCE_URL=jdbc:mysql://10.0.0.3:3366/ApolloConfigDB?characterEncoding=utf8
+            - SPRING_DATASOURCE_URL=jdbc:mysql://192.168.27.42:3366/ApolloConfigDB?characterEncoding=utf8
             - SPRING_DATASOURCE_USERNAME=apollo
             - SPRING_DATASOURCE_PASSWORD=2f4a9be476ee499f8e5d8c8f3998cd0a
             - eureka.instance.ip-address=172.23.0.3
-            # - eureka.instance.hostname=172.23.0.3
-        restart: always
-
-    apollo-portal:
-        build: apollo-portal/
-        container_name: apollo-portal
-        networks: 
-            - docker-apollo-network
-        depends_on: 
-            - apollo-adminservice
-        ports: 
-            - 8070:8070
-        volumes: 
-            - /Users/wangmeng/workSpace/docker/mickey/apollo/logs:/opt/logs
-            - /Users/wangmeng/workSpace/docker/mickey/apollo/apollo-portal/config/apollo-env.properties:/apollo-portal/config/apollo-env.properties
-        environment: 
-            - SPRING_DATASOURCE_URL=jdbc:mysql://10.0.0.3:3366/ApolloPortalDB?characterEncoding=utf8
-            - SPRING_DATASOURCE_USERNAME=apollo
-            - SPRING_DATASOURCE_PASSWORD=2f4a9be476ee499f8e5d8c8f3998cd0a
-            - local_meta=http://10.0.0.3:8080
-            - dev_meta=http://10.0.0.3:8080
-            - test_meta=http://10.0.0.3:8080
-            - prod_meta=http://10.0.0.3:8080
+            - eureka.instance.hostname=172.23.0.2
         restart: always
 
 networks: 
